@@ -1,10 +1,11 @@
-defmodule Gamex.MixProject do
+defmodule ExecFile.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :gamex,
+      app: :exec_file,
       version: "0.1.0",
+      escript: escript(),
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -16,6 +17,10 @@ defmodule Gamex.MixProject do
     [
       extra_applications: [:logger]
     ]
+  end
+
+  defp escript do
+    [main_module: ExecFile.CLI]
   end
 
   # Run "mix help deps" to learn about dependencies.
