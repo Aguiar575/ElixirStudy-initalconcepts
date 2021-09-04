@@ -7,7 +7,7 @@ defmodule Conditions.Pattern do
   end
 
   defp change({:ok, content}) do
-    content = content <> "teste"
+    content = content <> "test"
     File.write("text.txt", content)
   end
 
