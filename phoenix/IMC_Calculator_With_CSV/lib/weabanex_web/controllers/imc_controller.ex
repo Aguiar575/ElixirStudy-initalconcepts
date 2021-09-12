@@ -20,5 +20,4 @@ defmodule WeabanexWeb.IMCController do
     |> put_status(:bad_request)
     |> json(result)
   end
-
 end
