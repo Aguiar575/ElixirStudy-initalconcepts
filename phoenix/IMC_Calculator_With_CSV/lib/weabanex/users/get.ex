@@ -1,8 +1,9 @@
 defmodule Weabanex.Users.Get do
-  alias Ecto.UUID
-  alias Weabanex.{Repo, User}
+  import Ecto.Query
 
-  @spec call(any) :: {:error, <<_::104>>} | {:ok, <<_::288>>}
+  alias Ecto.UUID
+  alias Weabanex.{Repo, User, Training}
+
   def call(id) do
     id
     |> UUID.cast()
@@ -16,7 +17,17 @@ defmodule Weabanex.Users.Get do
   defp handle_error({:ok, uuid}) do
     case Repo.get(User, uuid) do
       nil -> {:error, "User not found."}
-      user -> {:ok, user}
+      user -> {:ok, load_training(user)}
     end
+  end
+
+  defp load_training(user) do
+    today = Date.utc_today()
+
+    query =
+      from training in Training,
+        where: ^today >= training.start_date and ^today <= training.end_date
+
+    Repo.preload(user, trainings: {first(query, :inserted_at), :exercises})
   end
 end

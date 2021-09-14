@@ -17,6 +17,5 @@ defmodule WeabanexWeb.Schema.Types.Training do
     field :start_date, non_null(:string)
     field :end_date, non_null(:string)
     field :exercises, list_of(:create_exercise_input)
-
   end
 end

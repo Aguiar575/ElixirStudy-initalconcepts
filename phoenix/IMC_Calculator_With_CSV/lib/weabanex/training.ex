@@ -26,5 +26,4 @@ defmodule Weabanex.Training do
     |> validate_required(@field)
     |> cast_assoc(:exercises)
   end
-
 end

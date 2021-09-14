@@ -7,6 +7,7 @@ defmodule WeabanexWeb.Schema.Types.User do
     field :id, non_null(:uuid4)
     field :name, non_null(:string)
     field :email, non_null(:string)
+    field :tranings, list_of(:training)
   end
 
   input_object :create_user_input do
@@ -14,6 +15,4 @@ defmodule WeabanexWeb.Schema.Types.User do
     field :email, non_null(:string)
     field :password, non_null(:string)
   end
-
-
 end

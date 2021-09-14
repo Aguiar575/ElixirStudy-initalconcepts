@@ -15,7 +15,7 @@ defmodule WeabanexWeb.Router do
     pipe_through :api
 
     forward "/graphql", Absinthe.Plug, schema: WeabanexWeb.Schema
-    forward "graphiql", Absinthe.Plug.GraphiQL, schema: WeabanexWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: WeabanexWeb.Schema
   end
 
   # Enables LiveDashboard only for development

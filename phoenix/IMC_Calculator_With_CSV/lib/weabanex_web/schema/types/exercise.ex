@@ -17,6 +17,4 @@ defmodule WeabanexWeb.Schema.Types.Exercise do
     field :protocol_description, non_null(:string)
     field :repetition, non_null(:string)
   end
-
-
 end
