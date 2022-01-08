@@ -1,11 +1,9 @@
-# Most simply module definition
 defmodule Example do
   def greeting(name) do
     "Hello #{name}."
   end
 end
 
-# is possible nest modules by namespaces
 defmodule Example.Greeting do
   def moring(name) do
     "Good morning, #{name}."
@@ -24,4 +22,3 @@ defmodule Greeting do
     "#{@hello}, #{name}."
   end
 end
-
